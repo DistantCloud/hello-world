@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+      <style>
+        p{
+            color:red;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+    <h3>fadeOut</h3>
+    <p>一会见你就看不到我了</p>
+    <p>还有我 还有我</p>
+    </br></br>
+    <select  id="animation">
+        <option value="1">fadeOut()</option>
+        <option value="2">fadeOut("slow")</option>
+        <option value="3">fadeOut(3000)</option>
+        <option value="4">fadeOut(1000,complete)</option>
+        <option value="5">fadeOut(1000,"linear")</option>
+        <option value="6">fadeOut(options)</option>
+    </select>
+    </br></br>
+    <input type="button" id="btu1" value="点击显示"/>
+    <input type="button" id="btu2" value="点击淡出隐藏"/>
+    <script type="text/javascript">
+    $("#btu1").click(function(){
+        $('p').show();
+    });
+     $("#btu2").click(function(){
+          var v = $("#animation").val();
+        if (v == "1") {
+            // 直接隐藏
+            $("p").fadeOut();
+        } else if (v == "2") {
+            // 放慢隐藏
+            $("p").fadeOut("slow");
+        } else if (v == "3") {
+            // 3秒持续时间隐藏
+            $("p").fadeOut(3000);
+        } else if (v == "4") {
+            // 两秒持续时间隐藏 完成弹出窗口
+            $("p").fadeOut(2000, function() {
+                alert("隐藏完毕!");
+            });
+        } else if (v == "5") {
+            $("p").fadeOut(1000, "linear");
+        } else if (v == "6") {
+            $("p").fadeOut({
+                duration: 1000
+            });
+        }
+            });
+    </script>
+</body>
+</html>

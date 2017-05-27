@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>停车动画</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+		<style type="text/css">
+    *{ padding:0px; margin:0px; }
+body{ 
+    background:#D5DEE7; 
+}
+.car{ 
+	position:absolute;
+    top:0px;
+    left:0px;  
+}
+    </style>
+	</head>
+	<body>
+        <img class="car" src="http://img.mukewang.com/5343d553000107a107200701.jpg" width="350" height="341"/>    
+        <script type="text/javascript">
+        $(document).ready(function(){
+    var index=1;
+      $('.car').click(function(){
+          if(index%2==1){
+          $(this).animate({top:'300px'},{duration:300})
+           index++;
+      }
+      else{
+          $(this).animate({top:'0px'},{duration:300})
+          index++;
+      } } )
+});
+        </script>
+	</body>
+</html>

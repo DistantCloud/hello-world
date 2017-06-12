@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/*内部样式表*/
+			html,body{
+				height: 100%;
+			}
+			body{
+				background-image: url(img/立方体/bg.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			#one{
+				background-color: red;
+				transform: translateZ(100px);
+			}
+			#two{
+				background-color: blue;
+				transform: translateZ(-100px);
+			}
+			#three{
+				background-color: aquamarine;
+				/*沿y轴旋转90度 再向前移动100像素*/
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			#four{
+				background-color: slateblue;
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			#five{
+				background-color: yellow;
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			#six{
+				background-color: forestgreen;
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+			#cube{
+				/*制定悬浮元素的坐标系*/
+				position: relative;
+				/*开启3d变换*/
+				transform-style: preserve-3d;
+				margin:200px auto ;
+				transform: rotateX(15deg) rotateY(15deg);
+				/*执行这个动画  持续两秒 无限循环 匀速旋转*/
+				animation: cubeAnimate 5s infinite linear;
+			}
+			/*自定义动画*/
+			@keyframes cubeAnimate{
+				from{
+					transform:rotateX(0deg) rotateY(0deg) ;
+				}
+				to{
+					transform: rotateX(360deg) rotateY(720deg);}
+			}
+			
+			#cube>div{
+				position: absolute;
+				left: 0;
+				top: 0;
+				/*过渡动画*/
+				transition: transform 1s;
+			}
+			#cube:hover>#one{
+				transform: translateZ(200px);
+			}
+			#cube:hover>#two{
+				transform: translateZ(-200px);
+			}
+			#cube:hover>#three{
+				transform: rotateY(90deg) translateZ(200px);
+			}
+			#cube:hover>#four{
+				transform: rotateY(-90deg) translateZ(200px);
+			}
+			#cube:hover>#five{
+				transform: rotateX(90deg) translateZ(200px);
+			}
+			#cube:hover>#six{
+				transform: rotateX(-90deg) translateZ(200px);
+			}
+		</style>
+	</head>
+	<body>
+		<!--#cube>div*6-->
+		<!--
+			emmet插件文档: https://docs.emmet.io/cheat-sheet/
+		-->
+		<div id="cube">
+			<div id="one">
+				<img src="img/立方体/01.png" width="200" height="200"/>
+			</div>
+			<div id="two">
+				<img src="img/立方体/02.png" width="200" height="200"/>
+			</div>
+			<div id="three">
+				<img src="img/立方体/03.png" width="200" height="200"/>
+			</div>
+			<div id="four">
+				<img src="img/立方体/04.png" width="200" height="200"/>
+			</div>
+			<div id="five">
+				<img src="img/立方体/05.png" width="200" height="200"/>
+			</div>
+			<div id="six">
+				<img src="img/立方体/06.png" width="200" height="200"/>
+			</div>
+		</div>
+	</body>
+</html>
